@@ -1,0 +1,44 @@
+STRICT PROPRIETARY & SOURCE-AVAILABLE LICENSE
+(RECRUITER & EMPLOYMENT EVALUATION PERMITTED)
+
+Copyright (c) 2026 Rithvik Kaki <rithvikkaki@gmail.com>
+Project: Carbon Footprint Fuse (EcoFuse)
+All Rights Reserved.
+
+================================================================================
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+================================================================================
+
+1. DEFINITIONS
+"Software" refers to the Carbon Footprint Fuse source code, documentation, assets, 
+build scripts, architectures, data models, APIs, and associated media.
+"Author" refers to Rithvik Kaki.
+"Evaluator" refers to recruiters, hiring managers, and prospective employers.
+
+2. STRICT PROHIBITION OF COMMERCIAL USE
+Under no circumstances may this Software or any part thereof be used, sold, 
+sublicensed, rented, monetized, or integrated into commercial products, SaaS platforms,
+or distributed enterprise services without prior written permission from the Author.
+
+3. STRICT PROHIBITION OF UNATTRIBUTED OR DERIVATIVE DISTRIBUTION
+No individual or entity may:
+(a) Copy, clone, redistribute, or publicly re-host this Software and claim it as their own work.
+(b) Submit this codebase as part of academic coursework, assessments, or portfolio submissions
+    under any name other than the Author.
+(c) Remove, alter, or obscure any copyright notices, branding, or attribution headers.
+
+4. PERMITTED RECRUITER & EMPLOYMENT EVALUATION GRANT
+A limited, non-exclusive, non-transferable, revocable license is granted to Evaluators solely to:
+(a) Inspect and review the source code for the purpose of assessing the Author's technical competency.
+(b) Execute the application locally or access authorized cloud demonstrations for candidate hiring review.
+Any use outside of hiring evaluation requires explicit prior written agreement.
+
+5. RESERVATION OF RIGHTS
+All intellectual property rights, trademarks, patents, and copyright ownership remain
+strictly and exclusively the property of the Author.
+
+6. DISCLAIMER OF WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, 
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR 
+ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE USE OR OTHER DEALINGS IN THE SOFTWARE.

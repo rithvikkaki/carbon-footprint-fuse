@@ -1,7 +1,9 @@
 {
   "name": "eco-fuse-footprint-hub",
   "private": true,
-  "version": "0.0.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": "Rithvik Kaki <rithvikkaki@gmail.com>",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
