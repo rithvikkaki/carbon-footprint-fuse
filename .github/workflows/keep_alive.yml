@@ -1,0 +1,19 @@
+name: EcoFuse Backend 24-7 Keep-Alive
+
+on:
+  schedule:
+    # Run every 10 minutes, 24/7, 365 days a year (Free on public GitHub repos)
+    - cron: '*/10 * * * *'
+  workflow_dispatch: # Allows manual trigger from GitHub UI if needed
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Backend Health Endpoint
+        run: |
+          # Replace with your actual Render backend URL once deployed
+          BACKEND_URL="${{ secrets.BACKEND_URL || 'https://ecofuse-backend.onrender.com' }}"
+          echo "Pinging $BACKEND_URL/health to keep container awake..."
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "$BACKEND_URL/health" || true)
+          echo "Health check HTTP status: $RESPONSE"

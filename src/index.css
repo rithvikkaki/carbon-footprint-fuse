@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 140 20% 99%;
+    --foreground: 160 40% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 160 40% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 40% 10%;
+
+    --primary: 158 64% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 152 40% 94%;
+    --secondary-foreground: 158 64% 30%;
+
+    --muted: 150 20% 96%;
+    --muted-foreground: 160 15% 45%;
+
+    --accent: 152 45% 90%;
+    --accent-foreground: 158 64% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 150 20% 90%;
+    --input: 150 20% 90%;
+    --ring: 158 64% 40%;
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 160 40% 5%;
+    --foreground: 140 20% 98%;
+
+    --card: 160 35% 8%;
+    --card-foreground: 140 20% 98%;
+
+    --popover: 160 35% 8%;
+    --popover-foreground: 140 20% 98%;
+
+    --primary: 158 64% 45%;
+    --primary-foreground: 160 40% 5%;
+
+    --secondary: 160 30% 15%;
+    --secondary-foreground: 140 20% 98%;
+
+    --muted: 160 30% 15%;
+    --muted-foreground: 150 15% 65%;
+
+    --accent: 160 30% 18%;
+    --accent-foreground: 140 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 160 30% 18%;
+    --input: 160 30% 18%;
+    --ring: 158 64% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-emerald-500/20 selection:text-emerald-700;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.eco-gradient-bg {
+  background: linear-gradient(90deg, #9eeeb6cc, #d3e4fdcc);
+}
