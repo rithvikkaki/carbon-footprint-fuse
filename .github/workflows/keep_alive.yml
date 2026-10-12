@@ -12,8 +12,7 @@ jobs:
     steps:
       - name: Ping Backend Health Endpoint
         run: |
-          # Replace with your actual Render backend URL once deployed
-          BACKEND_URL="${{ secrets.BACKEND_URL || 'https://ecofuse-backend.onrender.com' }}"
+          BACKEND_URL="${{ secrets.BACKEND_URL || 'https://carbon-footprint-fuse-api.onrender.com' }}"
           echo "Pinging $BACKEND_URL/health to keep container awake..."
           RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "$BACKEND_URL/health" || true)
           echo "Health check HTTP status: $RESPONSE"
