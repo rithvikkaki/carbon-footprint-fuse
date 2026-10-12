@@ -11,7 +11,7 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
-import { provenanceApi } from '@/lib/api';
+import { getAuthToken, provenanceApi } from '@/lib/api';
 import { useCarbonFootprint } from '@/contexts/CartonFootprintContext';
 import { Flame, Award, CheckCircle2, ShieldCheck, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -30,16 +30,33 @@ export const CreditRetirementManager: React.FC = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const fetchMyBatches = async () => {
+    const token = getAuthToken();
+    if (!token) {
+      setBatches([]);
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     try {
       const data = await provenanceApi.getBatches({ my_only: true });
       setBatches(data);
     } catch (err: any) {
-      toast({
-        title: 'Error loading batches',
-        description: err.message || 'Could not fetch your credit batches',
-        variant: 'destructive',
-      });
+      const errMsg = err?.message || '';
+      if (
+        errMsg.includes('Not authenticated') ||
+        errMsg.includes('401') ||
+        errMsg.includes('Could not validate')
+      ) {
+        // Silently reset batches when session is not authenticated or expired
+        setBatches([]);
+      } else {
+        toast({
+          title: 'Error loading batches',
+          description: errMsg || 'Could not fetch your credit batches',
+          variant: 'destructive',
+        });
+      }
     } finally {
       setLoading(false);
     }
@@ -51,6 +68,14 @@ export const CreditRetirementManager: React.FC = () => {
 
   const handleRetire = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!getAuthToken()) {
+      toast({
+        title: 'Authentication Required',
+        description: 'Please sign in to retire verified carbon credits.',
+        variant: 'destructive',
+      });
+      return;
+    }
     if (!selectedBatch) return;
     if (amount <= 0 || amount > selectedBatch.available_quantity) {
       toast({
@@ -124,6 +149,8 @@ export const CreditRetirementManager: React.FC = () => {
                   <Loader2 className="w-4 h-4 animate-spin text-emerald-600" />
                   Loading your credit batches...
                 </div>
+              ) : !getAuthToken() ? (
+                'Sign in to manage and retire your verified carbon credit batches.'
               ) : (
                 'No verified batches currently registered under your account. Batches must be verified before retirement.'
               )}
